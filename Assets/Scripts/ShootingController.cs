@@ -11,14 +11,17 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private LineRenderer laserLine;
 
-    private void OnEnable()
+    private void Start()
     {
-            InputManager.Instance.OnLeftClickInitiated += Shoot;
+        InputManager.Instance.OnLeftClickInitiated += Shoot;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        if (InputManager.Instance != null)
+        {
             InputManager.Instance.OnLeftClickInitiated -= Shoot;
+        }
     }
 
     private void Shoot()

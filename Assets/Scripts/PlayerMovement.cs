@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Settings")]
@@ -6,23 +7,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 15f;
 
     private Rigidbody2D rb;
-    private bool isJumping;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-            InputManager.Instance.OnJumpInitiated += HandleJumpStart;
-            InputManager.Instance.OnJumpCanceled += HandleJumpEnd;
+        InputManager.Instance.OnJumpInitiated += HandleJumpStart;
+        InputManager.Instance.OnJumpCanceled += HandleJumpEnd;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        if (InputManager.Instance != null)
+        {
             InputManager.Instance.OnJumpInitiated -= HandleJumpStart;
             InputManager.Instance.OnJumpCanceled -= HandleJumpEnd;
+        }
     }
 
     private void FixedUpdate()
