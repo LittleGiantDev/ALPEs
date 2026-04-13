@@ -12,12 +12,10 @@ public class AimController : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current == null) return;
-
         Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
 
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
-        mouseWorldPosition.z = 0f;
+        mouseWorldPosition.z = 0;
 
         Vector3 lookDirection = mouseWorldPosition - transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
