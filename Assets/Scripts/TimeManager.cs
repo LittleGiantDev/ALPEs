@@ -1,40 +1,86 @@
 using UnityEngine;
+using System.Collections;
+using DG.Tweening;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] [Range(0.05f, 0.5f)] private float slowmotionTime = 0.2f;
+    [SerializeField] private float slowMotionTimeScale = 0.2f;
+    [SerializeField] private float transitionDuration = 0.25f;
+    [SerializeField] private float hitStopDuration = 0.05f;
 
     private float normalTimeScale = 1f;
     private float normalFixedDeltaTime;
+    private Tweener timeTween;
+    private bool isHitStopping;
 
     private void Awake()
     {
         normalFixedDeltaTime = Time.fixedDeltaTime;
     }
 
-    private void OnEnable()
+    private void Start()
     {
-            InputManager.Instance.OnRightClickInitiated += StartSlowMotion;
-            InputManager.Instance.OnRightClickCanceled += StopSlowMotion;
-        
+        InputManager.Instance.OnRightClickInitiated += StartSlowMotion;
+        InputManager.Instance.OnRightClickCanceled += StopSlowMotion;
+        GameEvents.OnEnemyKilled += TriggerHitStop;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        if (InputManager.Instance != null)
+        {
             InputManager.Instance.OnRightClickInitiated -= StartSlowMotion;
             InputManager.Instance.OnRightClickCanceled -= StopSlowMotion;
-        
+        }
+        GameEvents.OnEnemyKilled -= TriggerHitStop;
     }
 
     private void StartSlowMotion()
     {
-        Time.timeScale = slowmotionTime;
-        Time.fixedDeltaTime = normalFixedDeltaTime * slowmotionTime;
+        if (isHitStopping) return;
+        
+        timeTween?.Kill();
+        timeTween = DOTween.To(() => Time.timeScale, x => 
+        {
+            Time.timeScale = x;
+            Time.fixedDeltaTime = normalFixedDeltaTime * x;
+        }, slowMotionTimeScale, transitionDuration).SetUpdate(true);
+        
+        GameEvents.OnSlowMotionStarted?.Invoke();
     }
 
     private void StopSlowMotion()
     {
-        Time.timeScale = normalTimeScale;
-        Time.fixedDeltaTime = normalFixedDeltaTime;
+        if (isHitStopping) return;
+
+        timeTween?.Kill();
+        timeTween = DOTween.To(() => Time.timeScale, x => 
+        {
+            Time.timeScale = x;
+            Time.fixedDeltaTime = normalFixedDeltaTime * x;
+        }, normalTimeScale, transitionDuration).SetUpdate(true);
+        
+        GameEvents.OnSlowMotionEnded?.Invoke();
+    }
+
+    private void TriggerHitStop()
+    {
+        if (isHitStopping) return; 
+        StartCoroutine(HitStopCoroutine());
+    }
+
+    private IEnumerator HitStopCoroutine()
+    {
+        isHitStopping = true;
+        timeTween?.Pause();
+        
+        float previousTimeScale = Time.timeScale;
+        Time.timeScale = 0.001f; 
+        
+        yield return new WaitForSecondsRealtime(hitStopDuration);
+        
+        Time.timeScale = previousTimeScale;
+        timeTween?.Play();
+        isHitStopping = false;
     }
 }

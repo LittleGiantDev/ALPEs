@@ -1,19 +1,32 @@
-using UnityEngine;
+using System;
 using System.Collections;
+using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    [Header("Settings")]
     [SerializeField] private float weaponRange = 50f;
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private int damage = 100;
+    [SerializeField] private LayerMask hitLayers;
+    
+    [SerializeField] private float flashThicknessMultiplier = 3f;
+    [SerializeField] private float flashDuration = 0.05f;
 
-    [Header("Dependencies")]
     [SerializeField] private Transform firePoint;
     [SerializeField] private LineRenderer laserLine;
+
+    private bool isAiming;
+    private float originalLineWidth;
+
+    private void Awake()
+    {
+        originalLineWidth = laserLine.startWidth;
+    }
 
     private void Start()
     {
         InputManager.Instance.OnLeftClickInitiated += Shoot;
+        InputManager.Instance.OnRightClickInitiated += StartAiming;
+        InputManager.Instance.OnRightClickCanceled += StopAiming;
     }
 
     private void OnDestroy()
@@ -21,27 +34,37 @@ public class ShootingController : MonoBehaviour
         if (InputManager.Instance != null)
         {
             InputManager.Instance.OnLeftClickInitiated -= Shoot;
+            InputManager.Instance.OnRightClickInitiated -= StartAiming;
+            InputManager.Instance.OnRightClickCanceled -= StopAiming;
         }
     }
 
-    private void Shoot()
+    private void Update()
     {
-        StartCoroutine(ShowLaserCoroutine());
-
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, weaponRange, enemyLayer);
-
-        if (hit.collider != null)
+        if (isAiming)
         {
-            Debug.Log(hit.collider.name);
+            UpdateLaserPosition();
         }
     }
 
-    private IEnumerator ShowLaserCoroutine()
+    private void StartAiming()
     {
+        isAiming = true;
         laserLine.enabled = true;
-        laserLine.SetPosition(0, firePoint.position);
+    }
 
-        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, weaponRange, enemyLayer);
+    private void StopAiming()
+    {
+        isAiming = false;
+        laserLine.enabled = false;
+    }
+
+    private void UpdateLaserPosition()
+    {
+        laserLine.SetPosition(0, firePoint.position);
+        
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, weaponRange, hitLayers);
+
         if (hit.collider != null)
         {
             laserLine.SetPosition(1, hit.point);
@@ -50,8 +73,42 @@ public class ShootingController : MonoBehaviour
         {
             laserLine.SetPosition(1, firePoint.position + firePoint.right * weaponRange);
         }
+    }
 
-        yield return new WaitForSeconds(0.05f);
-        laserLine.enabled = false;
+    private void Shoot()
+    {
+        if (!isAiming) return;
+
+        GameEvents.OnShoot?.Invoke();
+
+        StartCoroutine(ShootFlashCoroutine());
+
+        RaycastHit2D hit = Physics2D.Raycast(firePoint.position, firePoint.right, weaponRange, hitLayers);
+
+        if (hit.collider != null)
+        {
+            IDamageable damageable = hit.collider.GetComponent<IDamageable>();
+            
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage, hit.point);
+                
+                if (hit.collider.CompareTag("Enemy"))
+                {
+                    GameEvents.OnEnemyKilled?.Invoke();
+                }
+            }
+        }
+    }
+
+    private IEnumerator ShootFlashCoroutine()
+    {
+        laserLine.startWidth = originalLineWidth * flashThicknessMultiplier;
+        laserLine.endWidth = originalLineWidth * flashThicknessMultiplier;
+        
+        yield return new WaitForSecondsRealtime(flashDuration);
+        
+        laserLine.startWidth = originalLineWidth;
+        laserLine.endWidth = originalLineWidth;
     }
 }
