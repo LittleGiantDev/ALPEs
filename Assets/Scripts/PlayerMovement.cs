@@ -254,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
     public bool GetIsGrounded() => isGrounded;
     public float GetCurrentSpeed() => currentSpeed;
     public float GetAngularVelocity() => simulatedAngularVelocity;
+    public bool GetIsDead() => isDead;
 
     private void OnDrawGizmosSelected()
     {

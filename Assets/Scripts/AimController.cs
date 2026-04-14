@@ -1,23 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class AimController : MonoBehaviour
 {
-    private Camera mainCamera;
-
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
+    [SerializeField] private RectTransform rawImageRect;
+    [SerializeField] private Camera gameCamera;
 
     private void Update()
     {
-        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+        if (Mouse.current == null) return;
 
-        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(mouseScreenPosition);
-        mouseWorldPosition.z = 0;
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rawImageRect, mousePos, null, out Vector2 localPoint);
 
-        Vector3 lookDirection = mouseWorldPosition - transform.position;
+        Vector2 normalizedPoint = new Vector2(
+            (localPoint.x - rawImageRect.rect.x) / rawImageRect.rect.width,
+            (localPoint.y - rawImageRect.rect.y) / rawImageRect.rect.height
+        );
+
+        Vector3 worldPos = gameCamera.ViewportToWorldPoint(new Vector3(normalizedPoint.x, normalizedPoint.y, gameCamera.nearClipPlane));
+        worldPos.z = 0f;
+
+        Vector3 lookDirection = worldPos - transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
