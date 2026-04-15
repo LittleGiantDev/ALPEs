@@ -9,6 +9,11 @@ public static class GameEvents
     public static Action OnShoot;
     public static Action OnSlowMotionStarted;
     public static Action OnSlowMotionEnded;
-    public static Action OnGrindStarted;
-    public static Action OnGrindEnded;
+    public static Action<int> OnCoinCollected;
+    public static Action<int, int> OnAmmoChanged;
+    public static Action<float> OnReloadStarted; 
+    public static Action OnReloadFinished;
+    public static Action OnPlayerDeath;
+    public static Action OnTavernEntered;
+    public static Action OnTavernExited;
 }

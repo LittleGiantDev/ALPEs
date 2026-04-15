@@ -16,13 +16,24 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private float verticalSmoothTime = 0.2f;
     [SerializeField] private float groundWeight = 0.4f; 
-
+    
+    private bool isPlayerDead;
     private float currentVelocityY;
     private float lastKnownTargetY;
 
+    private void Start()
+    {
+        GameEvents.OnPlayerDeath += () => isPlayerDead = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.OnPlayerDeath -= () => isPlayerDead = true;
+    }
+    
     private void LateUpdate()
     {
-        if (player == null || cameraTarget == null || vcam == null) return;
+        if (isPlayerDead) return;
 
         float targetX = player.position.x;
         float targetY = lastKnownTargetY;

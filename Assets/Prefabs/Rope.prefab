@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7047026743243352677}
   m_Layer: 3
   m_Name: RopePart (5)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 10017461170065116}
   m_Layer: 3
   m_Name: RopePart (8)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 2008132001517198989}
   m_Layer: 3
   m_Name: RopePart (12)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 5977708135943590237}
   m_Layer: 3
   m_Name: RopePart (3)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 1874609504051192111}
   m_Layer: 3
   m_Name: RopePart (7)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 5890200588248974521}
   m_Layer: 3
   m_Name: RopePart (4)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,7 +890,7 @@ GameObject:
   - component: {fileID: 318898024301316754}
   m_Layer: 3
   m_Name: RopePart (11)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 5297446368327696929}
   m_Layer: 3
   m_Name: RopePart (9)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 839770709783296156}
   m_Layer: 3
   m_Name: RopePart (6)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1443,7 +1443,7 @@ GameObject:
   - component: {fileID: 5071919261149957111}
   m_Layer: 3
   m_Name: RopePart (10)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 6623079920071627180}
   m_Layer: 3
   m_Name: RopePart (2)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,7 +1735,7 @@ GameObject:
   - component: {fileID: 6332422416478699749}
   m_Layer: 3
   m_Name: RopePart (1)
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 1419573624585155909}
   m_Layer: 3
   m_Name: RopePart
-  m_TagString: Untagged
+  m_TagString: GrindRail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

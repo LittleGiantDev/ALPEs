@@ -83,4 +83,8 @@ public class TimeManager : MonoBehaviour
         timeTween?.Play();
         isHitStopping = false;
     }
+    public void UpgradeSlowMo(float newScale)
+    {
+        slowMotionTimeScale = newScale;
+    }
 }

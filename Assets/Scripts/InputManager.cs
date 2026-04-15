@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     public event Action OnRightClickCanceled;
     public event Action OnLeftClickInitiated;
     public event Action OnLeftClickCanceled;
+    public event Action OnReloadInitiated;
 
     private void Awake()
     {
@@ -34,6 +35,8 @@ public class InputManager : MonoBehaviour
         
         playerInput.Player.LeftClick.started += ctx => OnLeftClickInitiated?.Invoke();
         playerInput.Player.LeftClick.canceled += ctx => OnLeftClickCanceled?.Invoke();
+        
+        playerInput.Player.Reload.started += ctx => OnReloadInitiated?.Invoke();
     }
 
     private void OnEnable() => playerInput?.Player.Enable();

@@ -1,33 +1,41 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : PlayerSystem
 {
+    [Header("Upgrades")]
+    private bool canDoubleJump;
+    private bool hasUsedDoubleJump;
+    
+    [Header("Velocity")]
     [SerializeField] private float initialBaseSpeed = 12f;
     [SerializeField] private float maxBaseSpeed = 25f;
     [SerializeField] private float maxOverloadSpeed = 30f;
     [SerializeField] private float speedIncreasePerMeter = 0.002f;
     [SerializeField] private float groundAcceleration = 2f;
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private bool isOverloaded;
     
+    [Header("Landing")]
     [SerializeField] private float overloadDecayRate = 1.5f;
     [SerializeField] private float trickBoost = 7f;
     [SerializeField] private float auraDuration = 5f;
     [SerializeField] private ParticleSystem auraVFX;
-
     [SerializeField] private float maxSafeLandingAngle = 20f;
     [SerializeField] private float jumpForce = 14f;
     [SerializeField] private float airRotationSpeed = 300f;
     [SerializeField] private float predictiveRotationSpeed = 40f; 
     [SerializeField] private float groundAlignmentSpeed = 15f;
     [SerializeField] private float safeAlignmentThreshold = 45f;
+    [SerializeField] private float minAirTimeForBoost = 0.4f;
 
+    [Header("GroundCheck")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.5f;
     [SerializeField] private float groundCheckDistance = 0.6f;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float minAirTimeForBoost = 0.4f;
 
-    private Rigidbody2D rb;
     private bool isGrounded;
     private bool isHoldingJump;
     private Vector2 currentGroundNormal = Vector2.up;
@@ -35,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
     private float startX;
     private float airTime;
     private float auraTimer;
-    [SerializeField] private float currentSpeed;
-    [SerializeField] private bool isOverloaded;
 
     private float simulatedAngularVelocity;
     private float lastRotation;
@@ -44,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
     private ContactFilter2D groundFilter;
     private RaycastHit2D[] raycastHits = new RaycastHit2D[1];
 
-    private void Awake()
+    protected override void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake(); 
     }
 
     private void Start()
@@ -88,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateSpeedLogic();
 
-        rb.linearVelocity = new Vector2(currentSpeed, rb.linearVelocity.y);
+        main.Rb.linearVelocity = new Vector2(currentSpeed, main.Rb.linearVelocity.y);
 
         if (isGrounded)
         {
@@ -98,8 +104,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isHoldingJump)
             {
-                float newAngle = rb.rotation + airRotationSpeed * Time.fixedDeltaTime;
-                rb.MoveRotation(newAngle);
+                float newAngle = main.Rb.rotation + airRotationSpeed * Time.fixedDeltaTime;
+                main.Rb.MoveRotation(newAngle);
             }
             else
             {
@@ -107,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        simulatedAngularVelocity = Mathf.DeltaAngle(lastRotation, rb.rotation) / Time.fixedDeltaTime;
-        lastRotation = rb.rotation;
+        simulatedAngularVelocity = Mathf.DeltaAngle(lastRotation, main.Rb.rotation) / Time.fixedDeltaTime;
+        lastRotation = main.Rb.rotation;
     }
 
     private void UpdateSpeedLogic()
@@ -137,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     private void EvaluateLanding()
     {
         float targetUpAngle = Vector2.SignedAngle(Vector2.up, currentGroundNormal);
-        float angleDifference = Mathf.Abs(Mathf.DeltaAngle(rb.rotation, targetUpAngle));
+        float angleDifference = Mathf.Abs(Mathf.DeltaAngle(main.Rb.rotation, targetUpAngle));
 
         if (angleDifference <= maxSafeLandingAngle)
         {
@@ -147,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
                 currentSpeed += trickBoost;
                 ActivateAura();
             }
-            rb.SetRotation(targetUpAngle);
+            main.Rb.SetRotation(targetUpAngle);
         }
         else
         {
@@ -179,8 +185,8 @@ public class PlayerMovement : MonoBehaviour
     private void AlignWithGround()
     {
         float targetAngle = Vector2.SignedAngle(Vector2.up, currentGroundNormal);
-        float newAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.fixedDeltaTime * groundAlignmentSpeed);
-        rb.MoveRotation(newAngle);
+        float newAngle = Mathf.LerpAngle(main.Rb.rotation, targetAngle, Time.fixedDeltaTime * groundAlignmentSpeed);
+        main.Rb.MoveRotation(newAngle);
     }
 
     private void PredictiveRotation()
@@ -190,17 +196,25 @@ public class PlayerMovement : MonoBehaviour
         
         if (count > 0) targetAngle = Vector2.SignedAngle(Vector2.up, raycastHits[0].normal);
 
-        float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, predictiveRotationSpeed * Time.fixedDeltaTime);
-        rb.MoveRotation(newAngle);
+        float newAngle = Mathf.MoveTowardsAngle(main.Rb.rotation, targetAngle, predictiveRotationSpeed * Time.fixedDeltaTime);
+        main.Rb.MoveRotation(newAngle);
     }
 
     private void HandleJumpStart()
     {
         if (isDead) return;
         isHoldingJump = true;
+
         if (isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            hasUsedDoubleJump = false;
+        }
+        else if (canDoubleJump && !hasUsedDoubleJump)
+        {
+            main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, 0);
+            main.Rb.AddForce(Vector2.up * jumpForce * 0.8f, ForceMode2D.Impulse);
+            hasUsedDoubleJump = true;
         }
     }
 
@@ -208,7 +222,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead) return;
         isHoldingJump = false;
-        if (rb.linearVelocity.y > 0) rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+        if (main.Rb.linearVelocity.y > 0)
+        {
+            main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, main.Rb.linearVelocity.y * 0.5f);
+        }
     }
 
     private void HandleAuraTimer()
@@ -229,8 +246,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ActivateAura() => auraTimer = auraDuration;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
@@ -246,22 +261,60 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-        rb.bodyType = RigidbodyType2D.Static;
+
         auraTimer = 0;
-        GameEvents.OnPlayerCrash?.Invoke();
+        if (auraVFX != null)
+        {
+            auraVFX.Stop();
+        }
+
+        main.TriggerCrash();
+        main.TriggerDeath();
+
+        main.Rb.bodyType = RigidbodyType2D.Dynamic;
+        main.Rb.constraints = RigidbodyConstraints2D.None;
+        main.Rb.linearDamping = 4f; 
+        main.Rb.angularDamping = 1.5f;
+
+        main.Rb.AddTorque(Random.Range(-500f, 500f));
+        this.enabled = false;
     }
 
-    public bool GetIsGrounded() => isGrounded;
-    public float GetCurrentSpeed() => currentSpeed;
-    public float GetAngularVelocity() => simulatedAngularVelocity;
-    public bool GetIsDead() => isDead;
 
-    private void OnDrawGizmosSelected()
+    public void EnableDoubleJump()
     {
-        if (groundCheck != null)
-        {
-            Gizmos.color = isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position + (Vector3)Vector2.down * groundCheckDistance, groundCheckRadius);
-        }
+        canDoubleJump = true;
+    }
+
+    public void UpgradeBaseSpeed(float amount)
+    {
+        initialBaseSpeed += amount;
+        maxBaseSpeed += amount;
+        maxOverloadSpeed += amount;
+    }
+
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
+
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
+    }
+
+    public float GetAngularVelocity()
+    {
+        return simulatedAngularVelocity;
+    }
+
+    public bool GetIsDead()
+    {
+        return isDead;
+    }
+    
+    private void ActivateAura()
+    {
+        auraTimer = auraDuration;
     }
 }
