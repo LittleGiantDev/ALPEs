@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: e512bad3b8ac0004990f8375801e6fd3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3974636958805371865
+    second: Pine Tree - High Snow  - Spritesheet_0
+  - first:
+      213: 3131164586603671097
+    second: Pine Tree - High Snow  - Spritesheet_1
+  - first:
+      213: -2223118060798780013
+    second: Pine Tree - High Snow  - Spritesheet_2
+  - first:
+      213: 5212577952850257666
+    second: Pine Tree - High Snow  - Spritesheet_3
+  - first:
+      213: -5446088548740168102
+    second: Pine Tree - High Snow  - Spritesheet_4
+  - first:
+      213: 6161433223044184482
+    second: Pine Tree - High Snow  - Spritesheet_5
+  - first:
+      213: 5572012142416453729
+    second: Pine Tree - High Snow  - Spritesheet_6
+  - first:
+      213: -5019649756577750348
+    second: Pine Tree - High Snow  - Spritesheet_7
+  - first:
+      213: 3848140220089986175
+    second: Pine Tree - High Snow  - Spritesheet_8
+  - first:
+      213: 6106589047073345919
+    second: Pine Tree - High Snow  - Spritesheet_9
+  - first:
+      213: 182038852983812358
+    second: Pine Tree - High Snow  - Spritesheet_10
+  - first:
+      213: 2990206749765430387
+    second: Pine Tree - High Snow  - Spritesheet_11
+  - first:
+      213: -2046658952791760254
+    second: Pine Tree - High Snow  - Spritesheet_12
+  - first:
+      213: 7253414112739889629
+    second: Pine Tree - High Snow  - Spritesheet_13
+  - first:
+      213: -4762117423312462959
+    second: Pine Tree - High Snow  - Spritesheet_14
+  - first:
+      213: -7652472729628762217
+    second: Pine Tree - High Snow  - Spritesheet_15
+  - first:
+      213: 5853058152497706593
+    second: Pine Tree - High Snow  - Spritesheet_16
+  - first:
+      213: -8511921963290801953
+    second: Pine Tree - High Snow  - Spritesheet_17
+  - first:
+      213: 2095928487129288213
+    second: Pine Tree - High Snow  - Spritesheet_18
+  - first:
+      213: 6189107211707499060
+    second: Pine Tree - High Snow  - Spritesheet_19
+  - first:
+      213: -8848327306542767610
+    second: Pine Tree - High Snow  - Spritesheet_20
+  - first:
+      213: 2054217681300303311
+    second: Pine Tree - High Snow  - Spritesheet_21
+  - first:
+      213: -3141010053748885693
+    second: Pine Tree - High Snow  - Spritesheet_22
+  - first:
+      213: 7818270527369937889
+    second: Pine Tree - High Snow  - Spritesheet_23
+  - first:
+      213: -5132086411102232732
+    second: Pine Tree - High Snow  - Spritesheet_24
+  - first:
+      213: -8173296123143216380
+    second: Pine Tree - High Snow  - Spritesheet_25
+  - first:
+      213: -3262541370927628677
+    second: Pine Tree - High Snow  - Spritesheet_26
+  - first:
+      213: 6352257761072249840
+    second: Pine Tree - High Snow  - Spritesheet_27
+  - first:
+      213: -8028093812251397306
+    second: Pine Tree - High Snow  - Spritesheet_28
+  - first:
+      213: -2533395890950874411
+    second: Pine Tree - High Snow  - Spritesheet_29
+  - first:
+      213: 2756826873791064906
+    second: Pine Tree - High Snow  - Spritesheet_30
+  - first:
+      213: 5767535300854954324
+    second: Pine Tree - High Snow  - Spritesheet_31
+  - first:
+      213: -5447782893115231707
+    second: Pine Tree - High Snow  - Spritesheet_32
+  - first:
+      213: 4241655977246756343
+    second: Pine Tree - High Snow  - Spritesheet_33
+  - first:
+      213: 3544185048128986796
+    second: Pine Tree - High Snow  - Spritesheet_34
+  - first:
+      213: 9159353972375896453
+    second: Pine Tree - High Snow  - Spritesheet_35
+  - first:
+      213: -8389924647624833716
+    second: Pine Tree - High Snow  - Spritesheet_36
+  - first:
+      213: -5986964661883729988
+    second: Pine Tree - High Snow  - Spritesheet_37
+  - first:
+      213: -892845700966173538
+    second: Pine Tree - High Snow  - Spritesheet_38
+  - first:
+      213: 2291154589736929230
+    second: Pine Tree - High Snow  - Spritesheet_39
+  - first:
+      213: -4787885000633106744
+    second: Pine Tree - High Snow  - Spritesheet_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 54
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dbabb8614fb82730800000000000000
+      internalID: 3974636958805371865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e6bc51a91247b20800000000000000
+      internalID: 3131164586603671097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d555cf6e5e521e0800000000000000
+      internalID: -2223118060798780013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2072cabd70cc65840800000000000000
+      internalID: 5212577952850257666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56050dc15b9b64b0800000000000000
+      internalID: -5446088548740168102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9b6d62fdec18550800000000000000
+      internalID: 6161433223044184482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16065e09583c35d40800000000000000
+      internalID: 5572012142416453729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b2ae42442f965ab0800000000000000
+      internalID: -5019649756577750348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c6b505427576530800000000000000
+      internalID: 3848140220089986175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f71191c5266feb450800000000000000
+      internalID: 6106589047073345919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6017b6f4f5bb68200800000000000000
+      internalID: 182038852983812358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37c6eb432395f7920800000000000000
+      internalID: 2990206749765430387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282697ea68ec893e0800000000000000
+      internalID: -2046658952791760254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd19aae84bd49a460800000000000000
+      internalID: 7253414112739889629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b13cc2f6f89edb0800000000000000
+      internalID: -4762117423312462959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f1d11d894fcc590800000000000000
+      internalID: -7652472729628762217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166745df06d3a3150800000000000000
+      internalID: 5853058152497706593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8c43e82149fd980800000000000000
+      internalID: -8511921963290801953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e86f5badb361d10800000000000000
+      internalID: 2095928487129288213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43242aeb73024e550800000000000000
+      internalID: 6189107211707499060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6022125f13d643580800000000000000
+      internalID: -8848327306542767610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd2b31f81c028c10800000000000000
+      internalID: 2054217681300303311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 347fd567ff3e864d0800000000000000
+      internalID: -3141010053748885693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e38ac52f93108c60800000000000000
+      internalID: 7818270527369937889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f54ad999a27c8b0800000000000000
+      internalID: -5132086411102232732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403a8ffda7e929e80800000000000000
+      internalID: -8173296123143216380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7eb7d8a8ef19b2d0800000000000000
+      internalID: -3262541370927628677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fbfd6a27c0c72850800000000000000
+      internalID: 6352257761072249840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6437e31663b769090800000000000000
+      internalID: -8028093812251397306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da50741cd197dcd0800000000000000
+      internalID: -2533395890950874411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b21977f67324620800000000000000
+      internalID: 2756826873791064906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4593cf46cc66a0050800000000000000
+      internalID: 5767535300854954324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522ba6282569564b0800000000000000
+      internalID: -5447782893115231707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fd843753a36dda30800000000000000
+      internalID: 4241655977246756343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae9afbf5897f2130800000000000000
+      internalID: 3544185048128986796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5814787d8ef8c1f70800000000000000
+      internalID: 9159353972375896453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4507061cfff09b80800000000000000
+      internalID: -8389924647624833716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb78a9d3c570aeca0800000000000000
+      internalID: -5986964661883729988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e943da2c099fb93f0800000000000000
+      internalID: -892845700966173538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 0
+        width: 55
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec786c6d5f0dbcf10800000000000000
+      internalID: 2291154589736929230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine Tree - High Snow  - Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 2119
+        y: 0
+        width: 54
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ceb7df85f30e8db0800000000000000
+      internalID: -4787885000633106744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pine Tree - High Snow  - Spritesheet_0: 3974636958805371865
+      Pine Tree - High Snow  - Spritesheet_1: 3131164586603671097
+      Pine Tree - High Snow  - Spritesheet_10: 182038852983812358
+      Pine Tree - High Snow  - Spritesheet_11: 2990206749765430387
+      Pine Tree - High Snow  - Spritesheet_12: -2046658952791760254
+      Pine Tree - High Snow  - Spritesheet_13: 7253414112739889629
+      Pine Tree - High Snow  - Spritesheet_14: -4762117423312462959
+      Pine Tree - High Snow  - Spritesheet_15: -7652472729628762217
+      Pine Tree - High Snow  - Spritesheet_16: 5853058152497706593
+      Pine Tree - High Snow  - Spritesheet_17: -8511921963290801953
+      Pine Tree - High Snow  - Spritesheet_18: 2095928487129288213
+      Pine Tree - High Snow  - Spritesheet_19: 6189107211707499060
+      Pine Tree - High Snow  - Spritesheet_2: -2223118060798780013
+      Pine Tree - High Snow  - Spritesheet_20: -8848327306542767610
+      Pine Tree - High Snow  - Spritesheet_21: 2054217681300303311
+      Pine Tree - High Snow  - Spritesheet_22: -3141010053748885693
+      Pine Tree - High Snow  - Spritesheet_23: 7818270527369937889
+      Pine Tree - High Snow  - Spritesheet_24: -5132086411102232732
+      Pine Tree - High Snow  - Spritesheet_25: -8173296123143216380
+      Pine Tree - High Snow  - Spritesheet_26: -3262541370927628677
+      Pine Tree - High Snow  - Spritesheet_27: 6352257761072249840
+      Pine Tree - High Snow  - Spritesheet_28: -8028093812251397306
+      Pine Tree - High Snow  - Spritesheet_29: -2533395890950874411
+      Pine Tree - High Snow  - Spritesheet_3: 5212577952850257666
+      Pine Tree - High Snow  - Spritesheet_30: 2756826873791064906
+      Pine Tree - High Snow  - Spritesheet_31: 5767535300854954324
+      Pine Tree - High Snow  - Spritesheet_32: -5447782893115231707
+      Pine Tree - High Snow  - Spritesheet_33: 4241655977246756343
+      Pine Tree - High Snow  - Spritesheet_34: 3544185048128986796
+      Pine Tree - High Snow  - Spritesheet_35: 9159353972375896453
+      Pine Tree - High Snow  - Spritesheet_36: -8389924647624833716
+      Pine Tree - High Snow  - Spritesheet_37: -5986964661883729988
+      Pine Tree - High Snow  - Spritesheet_38: -892845700966173538
+      Pine Tree - High Snow  - Spritesheet_39: 2291154589736929230
+      Pine Tree - High Snow  - Spritesheet_4: -5446088548740168102
+      Pine Tree - High Snow  - Spritesheet_40: -4787885000633106744
+      Pine Tree - High Snow  - Spritesheet_5: 6161433223044184482
+      Pine Tree - High Snow  - Spritesheet_6: 5572012142416453729
+      Pine Tree - High Snow  - Spritesheet_7: -5019649756577750348
+      Pine Tree - High Snow  - Spritesheet_8: 3848140220089986175
+      Pine Tree - High Snow  - Spritesheet_9: 6106589047073345919
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
