@@ -25,7 +25,7 @@ public class SpeedVFX : MonoBehaviour
     {
         float currentEmission = 0f;
 
-        if (player.GetIsGrounded())
+        if (player.GetIsGrounded() && !player.GetIsDead())
         {
             float speedRatio = Mathf.InverseLerp(minSpeed, maxSpeed, player.GetCurrentSpeed());
             

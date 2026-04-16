@@ -8,7 +8,7 @@ public class DeathZone : MonoBehaviour
         
         if (player != null)
         {
-            player.Crash();
+            player.VoidCrash();
         }
     }
 }

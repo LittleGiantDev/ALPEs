@@ -8,6 +8,7 @@ public class PlayerMain : MonoBehaviour
 
     public event Action OnPlayerCrash;
     public event Action OnPlayerDeath;
+    public event Action OnPlayerShoot;
     public event Action<int, int> OnAmmoChanged;
 
     public void TriggerCrash()
@@ -20,6 +21,12 @@ public class PlayerMain : MonoBehaviour
     {
         OnPlayerDeath?.Invoke();
         GameEvents.OnPlayerDeath?.Invoke();
+    }
+
+    public void TriggerShoot()
+    {
+        OnPlayerShoot?.Invoke();
+        GameEvents.OnShoot?.Invoke();
     }
 
     public void TriggerAmmoChanged(int current, int max)

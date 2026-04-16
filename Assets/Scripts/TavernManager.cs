@@ -49,14 +49,13 @@ public class TavernManager : MonoBehaviour
         playerShoot = player.GetComponent<ShootingController>();
         playerRb = player.GetComponent<Rigidbody2D>();
 
-        // Parada total y posicionamiento
         playerMove.enabled = false;
         playerShoot.enabled = false;
         playerRb.linearVelocity = Vector2.zero;
         playerRb.angularVelocity = 0f;
         playerRb.bodyType = RigidbodyType2D.Kinematic;
 
-        player.transform.DOMoveX(playerAnchor.position.x, 1f).SetEase(Ease.OutQuad);
+        player.transform.DOMove(playerAnchor.position, 1f).SetEase(Ease.OutQuad);
 
         Sequence tavernSeq = DOTween.Sequence();
         tavernSeq.Join(fourthWall.DOMoveY(wallStartPos.y + wallMoveY, transitionTime));

@@ -5,7 +5,7 @@ using DG.Tweening;
 public class EconomyManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinsText;
-    private int totalCoins;
+    [SerializeField] private int totalCoins;
 
     private void Start()
     {

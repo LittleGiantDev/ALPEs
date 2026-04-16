@@ -46,14 +46,25 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        fixedPatrolCoordinates = new Vector3[patrolPoints.Length];
-        for (int i = 0; i < patrolPoints.Length; i++)
+        if (patrolPoints != null && patrolPoints.Length > 0)
         {
-            if (patrolPoints[i] != null)
+            fixedPatrolCoordinates = new Vector3[patrolPoints.Length];
+            for (int i = 0; i < patrolPoints.Length; i++)
             {
-                fixedPatrolCoordinates[i] = patrolPoints[i].position;
-                patrolPoints[i].SetParent(null); 
+                if (patrolPoints[i] != null)
+                {
+                    fixedPatrolCoordinates[i] = new Vector3(patrolPoints[i].position.x, patrolPoints[i].position.y, transform.position.z);
+                    Destroy(patrolPoints[i].gameObject);
+                }
+                else
+                {
+                    fixedPatrolCoordinates[i] = transform.position;
+                }
             }
+        }
+        else
+        {
+            fixedPatrolCoordinates = new Vector3[] { transform.position };
         }
 
         currentState = State.Patrolling;
@@ -83,7 +94,7 @@ public class EnemyAI : MonoBehaviour
         {
             moveWhileAttacking = Random.value > 0.5f;
             SetAnimationState(moveWhileAttacking);
-            shootTimer = 0.2f;        
+            shootTimer = 0.5f;        
         }
 
         currentState = nextState;
@@ -100,15 +111,12 @@ public class EnemyAI : MonoBehaviour
 
     private void HandlePatrol()
     {
-        if (fixedPatrolCoordinates.Length == 0) return;
-
         Vector3 targetPoint = fixedPatrolCoordinates[currentPointIndex];
 
         if (Vector2.Distance(transform.position, targetPoint) > 0.2f)
         {
             SetAnimationState(true);
-            transform.position = Vector2.MoveTowards(transform.position, targetPoint, movementSpeed * Time.deltaTime);
-            FlipTowards(targetPoint);
+            transform.position = Vector3.MoveTowards(transform.position, targetPoint, movementSpeed * Time.deltaTime);
         }
         else
         {
@@ -124,15 +132,14 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleAttack()
     {
-        FlipTowards(player.position);
 
-        if (moveWhileAttacking && fixedPatrolCoordinates.Length > 0)
+        if (moveWhileAttacking)
         {
             Vector3 targetPoint = fixedPatrolCoordinates[currentPointIndex];
 
             if (Vector2.Distance(transform.position, targetPoint) > 0.2f)
             {
-                transform.position = Vector2.MoveTowards(transform.position, targetPoint, movementSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPoint, movementSpeed * Time.deltaTime);
                 SetAnimationState(true);
             }
             else
@@ -164,12 +171,6 @@ public class EnemyAI : MonoBehaviour
         bullet.Setup(dir);
     }
 
-    private void FlipTowards(Vector2 target)
-    {
-        float yRotation = target.x > transform.position.x ? 0f : 180f;
-        transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
-    }
-
     private void SetAnimationState(bool moving)
     {
         if (isMoving == moving) return;
@@ -186,6 +187,12 @@ public class EnemyAI : MonoBehaviour
     {
         isDead = true;
         this.enabled = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
     private EnemyBullet OnCreateBullet()

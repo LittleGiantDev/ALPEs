@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49424310752ad2f408f2d2c0ae6702bd, type: 3}
-  m_Name: Speed
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: SPEED
-  description: 
-  price: 5
-  type: 1
-  value: 5
+  m_Script: {fileID: 11500000, guid: 32d1ff531a5544b79e860d2478830e3f, type: 3}
+  m_Name: FireRateUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::FireRateUpgrade
+  upgradeName: QUICK BULLETS
+  description: More fire rate
+  price: 30
+  fireRateReduction: 0.05

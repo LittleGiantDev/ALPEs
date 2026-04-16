@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49424310752ad2f408f2d2c0ae6702bd, type: 3}
-  m_Name: "Da\xF1o"
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: DAMAGE
-  description: 
-  price: 5
-  type: 0
-  value: 25
+  m_Script: {fileID: 11500000, guid: db5a2821ab0e42468eda10f7ce606cbb, type: 3}
+  m_Name: RotationUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::RotationUpgrade
+  upgradeName: DANCER
+  description: Spin faster
+  price: 40
+  rotationBoost: 10

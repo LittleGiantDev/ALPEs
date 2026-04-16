@@ -1510,7 +1510,7 @@ MonoBehaviour:
   - {fileID: 335264850047643174}
   movementSpeed: 4
   idleWaitTime: 2
-  detectionRange: 50
+  detectionRange: 40
   minShootDelay: 1
   maxShootDelay: 3
   bulletPrefab: {fileID: 8609915463219065081, guid: 3072c395ba155f049a958c34eeb2ff16, type: 3}

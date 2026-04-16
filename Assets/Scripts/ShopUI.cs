@@ -1,96 +1,88 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class ShopUI : MonoBehaviour
 {
-    [Header("UI References")]
     [SerializeField] private TavernManager tavernManager;
-    [SerializeField] private TextMeshProUGUI playerCoinsText;
     [SerializeField] private Button continueButton;
-    
-    [Header("Upgrade Slots")]
-    [SerializeField] private UpgradeSlot[] slots; // Crea 3 slots en tu UI
-    [SerializeField] private UpgradeData[] allPossibleUpgrades; // Base de datos de todas las mejoras
+    [SerializeField] private UpgradeSlot[] slots;
+    [SerializeField] private UpgradeData[] allPossibleUpgrades;
 
-    private UpgradeData selectedUpgrade;
     private EconomyManager economy;
+    private bool isTransitioning;
 
     private void Start()
     {
         economy = FindFirstObjectByType<EconomyManager>();
         continueButton.onClick.AddListener(OnContinuePressed);
-        
-        // Al empezar, cada slot necesita saber qué pasa si lo clickas
-        foreach (var slot in slots)
+
+        foreach (UpgradeSlot slot in slots)
         {
-            slot.onSelected += HandleUpgradeSelection;
+            slot.onSelected += TryBuyUpgrade;
         }
     }
 
     private void OnEnable()
     {
-        RefreshCoinsUI();
+        isTransitioning = false;
         GenerateRandomDeals();
     }
 
     private void GenerateRandomDeals()
     {
-        // Elegimos 3 mejoras al azar de la lista
-        List<UpgradeData> pool = new List<UpgradeData>(allPossibleUpgrades);
+        List<UpgradeData> pool = new List<UpgradeData>();
+        
+        foreach (UpgradeData data in allPossibleUpgrades)
+        {
+            if (data.CanBeBought())
+            {
+                pool.Add(data);
+            }
+        }
+        
         for (int i = 0; i < slots.Length; i++)
         {
+            if (pool.Count == 0)
+            {
+                slots[i].gameObject.SetActive(false);
+                continue;
+            }
+            
+            slots[i].gameObject.SetActive(true);
             int randomIndex = Random.Range(0, pool.Count);
             slots[i].Setup(pool[randomIndex]);
-            pool.RemoveAt(randomIndex); // Para que no se repitan
+            pool.RemoveAt(randomIndex);
         }
     }
 
-    private void HandleUpgradeSelection(UpgradeData data)
+    private void TryBuyUpgrade(UpgradeData data)
     {
-        selectedUpgrade = data;
-        // Aquí podrías iluminar el botón para que se vea que está elegido
+        if (isTransitioning) return;
+
+        if (economy.SpendCoins(data.price))
+        {
+            isTransitioning = true;
+            data.ApplyUpgrade();
+            ExecutePurchaseFeedback(data);
+        }
     }
 
-    private void RefreshCoinsUI()
+    private void ExecutePurchaseFeedback(UpgradeData selectedData)
     {
-        if (economy != null) playerCoinsText.text = "MONEDAS: " + economy.GetCoins();
+        foreach (UpgradeSlot slot in slots)
+        {
+            bool isSelected = (slot.data == selectedData);
+            slot.PlaySelectionAnimation(isSelected);
+        }
+
+        DOVirtual.DelayedCall(0.5f, () => tavernManager.ResumeGame()).SetUpdate(true);
     }
 
     private void OnContinuePressed()
     {
-        if (selectedUpgrade != null)
-        {
-            if (economy.SpendCoins(selectedUpgrade.price))
-            {
-                ApplyUpgradeEffect(selectedUpgrade);
-            }
-        }
-        
-        selectedUpgrade = null;
+        if (isTransitioning) return;
         tavernManager.ResumeGame();
-    }
-
-    private void ApplyUpgradeEffect(UpgradeData data)
-    {
-        // GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //
-        // switch (data.type)
-        // {
-        //     case UpgradeData.UpgradeType.Speed:
-        //         player.GetComponent<PlayerMovement>().UpgradeBaseSpeed(data.value);
-        //         break;
-        //     case UpgradeData.UpgradeType.MaxAmmo:
-        //         player.GetComponent<ShootingController>().UpgradeMaxAmmo((int)data.value);
-        //         break;
-        //     case UpgradeData.UpgradeType.DoubleJump:
-        //         player.GetComponent<PlayerMovement>().EnableDoubleJump();
-        //         break;
-        //     case UpgradeData.UpgradeType.SlowMoPower:
-        //         // Buscamos al TimeManager en la escena
-        //         FindFirstObjectByType<TimeManager>().UpgradeSlowMo(data.value);
-        //         break;
-        // }
     }
 }

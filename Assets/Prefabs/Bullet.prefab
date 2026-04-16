@@ -129,7 +129,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 3}
+  m_Size: {x: 1.5, y: 5}
   m_Direction: 1
 --- !u!50 &3313683660444655440
 Rigidbody2D:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4948cc167f2af74b85bc4c1b56ffe8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
-  defaultSpeed: 25
+  defaultSpeed: 20
   damage: 50
   playerLayer:
     serializedVersion: 2

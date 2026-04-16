@@ -7,6 +7,7 @@ public class PlayerMovement : PlayerSystem
     [Header("Upgrades")]
     private bool canDoubleJump;
     private bool hasUsedDoubleJump;
+    private bool hasShield;
     
     [Header("Velocity")]
     [SerializeField] private float initialBaseSpeed = 12f;
@@ -35,6 +36,10 @@ public class PlayerMovement : PlayerSystem
     [SerializeField] private float groundCheckRadius = 0.5f;
     [SerializeField] private float groundCheckDistance = 0.6f;
     [SerializeField] private LayerMask groundLayer;
+    
+    [Header("VFX References")]
+    [SerializeField] private GameObject shieldVisual;
+    [SerializeField] private ParticleSystem doubleJumpVFX;
 
     private bool isGrounded;
     private bool isHoldingJump;
@@ -83,14 +88,21 @@ public class PlayerMovement : PlayerSystem
 
     private void Update()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
+        
         CheckGrounded();
         HandleAuraTimer();
     }
 
     private void FixedUpdate()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
 
         UpdateSpeedLogic();
 
@@ -173,7 +185,12 @@ public class PlayerMovement : PlayerSystem
         if (isGrounded)
         {
             currentGroundNormal = raycastHits[0].normal;
-            if (!wasGrounded) EvaluateLanding();
+            
+            if (!wasGrounded)
+            {
+                EvaluateLanding();
+            }
+            
             airTime = 0f;
         }
         else
@@ -194,7 +211,10 @@ public class PlayerMovement : PlayerSystem
         int count = Physics2D.Raycast(transform.position, Vector2.down, groundFilter, raycastHits, 50f);
         float targetAngle = 0f;
         
-        if (count > 0) targetAngle = Vector2.SignedAngle(Vector2.up, raycastHits[0].normal);
+        if (count > 0)
+        {
+            targetAngle = Vector2.SignedAngle(Vector2.up, raycastHits[0].normal);
+        }
 
         float newAngle = Mathf.MoveTowardsAngle(main.Rb.rotation, targetAngle, predictiveRotationSpeed * Time.fixedDeltaTime);
         main.Rb.MoveRotation(newAngle);
@@ -215,13 +235,23 @@ public class PlayerMovement : PlayerSystem
             main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, 0);
             main.Rb.AddForce(Vector2.up * jumpForce * 0.8f, ForceMode2D.Impulse);
             hasUsedDoubleJump = true;
+
+            if (doubleJumpVFX != null)
+            {
+                doubleJumpVFX.Play();
+            }
         }
     }
 
     private void HandleJumpEnd()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
+        
         isHoldingJump = false;
+        
         if (main.Rb.linearVelocity.y > 0)
         {
             main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, main.Rb.linearVelocity.y * 0.5f);
@@ -233,6 +263,7 @@ public class PlayerMovement : PlayerSystem
         if (auraTimer > 0)
         {
             auraTimer -= Time.deltaTime;
+            
             if (auraVFX != null && !auraVFX.isPlaying)
             {
                 isOverloaded = true;
@@ -248,21 +279,58 @@ public class PlayerMovement : PlayerSystem
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
 
         if (collision.CompareTag("Hazard"))
         {
-            if (isOverloaded) Destroy(collision.gameObject);
-            else Crash();
+            if (isOverloaded)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                Crash();
+            }
         }
+    }
+
+    public void VoidCrash()
+    {
+        if (isDead)
+        {
+            return;
+        }
+        
+        hasShield = false;
+        Crash();
     }
 
     public void Crash()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            return;
+        }
+        
+        if (hasShield)
+        {
+            hasShield = false;
+            if (shieldVisual != null)
+            {
+                shieldVisual.SetActive(false);
+            }
+            
+            main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, jumpForce);
+            return;
+        }
+
         isDead = true;
 
         auraTimer = 0;
+        
         if (auraVFX != null)
         {
             auraVFX.Stop();
@@ -280,7 +348,6 @@ public class PlayerMovement : PlayerSystem
         this.enabled = false;
     }
 
-
     public void EnableDoubleJump()
     {
         canDoubleJump = true;
@@ -291,6 +358,31 @@ public class PlayerMovement : PlayerSystem
         initialBaseSpeed += amount;
         maxBaseSpeed += amount;
         maxOverloadSpeed += amount;
+    }
+    
+    public void UpgradeRotationSpeed(float amount)
+    {
+        airRotationSpeed += amount;
+        predictiveRotationSpeed += amount;
+    }
+
+    public void UpgradeTrickBoost(float amount)
+    {
+        trickBoost += amount;
+    }
+
+    public void UpgradeAcceleration(float amount)
+    {
+        groundAcceleration += amount;
+    }
+
+    public void EnableShield()
+    {
+        hasShield = true;
+        if (shieldVisual != null)
+        {
+            shieldVisual.SetActive(true);
+        }
     }
 
     public bool GetIsGrounded()
@@ -316,5 +408,15 @@ public class PlayerMovement : PlayerSystem
     private void ActivateAura()
     {
         auraTimer = auraDuration;
+    }
+    
+    public bool HasDoubleJump()
+    {
+        return canDoubleJump;
+    }
+
+    public bool HasShield()
+    {
+        return hasShield;
     }
 }

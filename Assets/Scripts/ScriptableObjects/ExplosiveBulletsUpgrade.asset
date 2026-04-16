@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49424310752ad2f408f2d2c0ae6702bd, type: 3}
-  m_Name: MaxAmmo
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: MAX AMMO
-  description: UPGRADE MAX AMMO +2
-  price: 5
-  type: 2
-  value: 2
+  m_Script: {fileID: 11500000, guid: 9a5ee05b86bd42978bf77937569d0736, type: 3}
+  m_Name: ExplosiveBulletsUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::ExplosiveBulletsUpgrade
+  upgradeName: KABOOM
+  description: Bullets explode on impact
+  price: 100
