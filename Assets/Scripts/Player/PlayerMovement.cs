@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlayerMovement : PlayerSystem
 {
@@ -162,16 +163,24 @@ public class PlayerMovement : PlayerSystem
 
     private void EvaluateLanding()
     {
+        if (isInTavern) return;
+
         float targetUpAngle = Vector2.SignedAngle(Vector2.up, currentGroundNormal);
         float angleDifference = Mathf.Abs(Mathf.DeltaAngle(main.Rb.rotation, targetUpAngle));
 
         if (angleDifference <= maxSafeLandingAngle)
         {
-            AudioManager.Instance.PlayLandSound();
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayLandSound();
+            }
 
             if (airTime >= minAirTimeForBoost)
             {
-                GameEvents.OnPerfectLanding.Invoke();
+                if (GameEvents.OnPerfectLanding != null)
+                {
+                    GameEvents.OnPerfectLanding.Invoke();
+                }
                 currentSpeed += trickBoost;
                 ActivateAura();
             }
@@ -227,13 +236,17 @@ public class PlayerMovement : PlayerSystem
         {
             airTime += Time.deltaTime;
         }
-        if (isGrounded == false)
+
+        if (main.Anim != null)
         {
-            main.Anim.SetBool("isJumping", true);
-        }
-        else
-        {
-            main.Anim.SetBool("isJumping", false);
+            if (isGrounded == false)
+            {
+                main.Anim.SetBool("isJumping", true);
+            }
+            else
+            {
+                main.Anim.SetBool("isJumping", false);
+            }
         }
     }
 
@@ -310,17 +323,28 @@ public class PlayerMovement : PlayerSystem
         if (auraTimer > 0)
         {
             auraTimer -= Time.deltaTime;
-            if (auraVFX.isPlaying == false)
+            
+            if (auraVFX != null)
             {
-                isOverloaded = true;
-                auraVFX.Play();
-                AudioManager.Instance.PlayAuraSound();
+                if (auraVFX.isPlaying == false)
+                {
+                    isOverloaded = true;
+                    auraVFX.Play();
+                    
+                    if (AudioManager.Instance != null)
+                    {
+                        AudioManager.Instance.PlayAuraSound();
+                    }
+                }
             }
         }
-        else if (auraVFX.isPlaying)
+        else if (auraVFX != null)
         {
-            isOverloaded = false;
-            auraVFX.Stop();
+            if (auraVFX.isPlaying)
+            {
+                isOverloaded = false;
+                auraVFX.Stop();
+            }
         }
     }
 
@@ -366,7 +390,10 @@ public class PlayerMovement : PlayerSystem
         if (hasShield)
         {
             hasShield = false;
-            shieldVisual.SetActive(false);
+            if (shieldVisual != null)
+            {
+                shieldVisual.SetActive(false);
+            }
             
             main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, jumpForce);
             return;
@@ -375,7 +402,10 @@ public class PlayerMovement : PlayerSystem
         isDead = true;
         auraTimer = 0;
         
-        auraVFX.Stop();
+        if (auraVFX != null)
+        {
+            auraVFX.Stop();
+        }
 
         main.TriggerCrash();
         main.TriggerDeath();
@@ -386,10 +416,20 @@ public class PlayerMovement : PlayerSystem
     public void SetTavernState(bool state)
     {
         isInTavern = state;
-        main.Anim.SetBool("isInTavern", state);
+        
         if (state)
         {
-            main.Anim.SetBool("isJumping", false);
+            isGrounded = true;
+            airTime = 0f;
+        }
+
+        if (main.Anim != null)
+        {
+            main.Anim.SetBool("isInTavern", state);
+            if (state)
+            {
+                main.Anim.SetBool("isJumping", false);
+            }
         }
     }
 
@@ -424,7 +464,10 @@ public class PlayerMovement : PlayerSystem
     public void EnableShield()
     {
         hasShield = true;
-        shieldVisual.SetActive(true);
+        if (shieldVisual != null)
+        {
+            shieldVisual.SetActive(true);
+        }
     }
 
     public bool GetIsGrounded()
