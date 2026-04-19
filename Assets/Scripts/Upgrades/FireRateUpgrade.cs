@@ -8,9 +8,6 @@ public class FireRateUpgrade : UpgradeData
     public override void ApplyUpgrade()
     {
         ShootingController playerShoot = FindFirstObjectByType<ShootingController>();
-        if (playerShoot != null)
-        {
-            playerShoot.UpgradeFireRate(fireRateReduction);
-        }
+        playerShoot.UpgradeFireRate(fireRateReduction);
     }
 }

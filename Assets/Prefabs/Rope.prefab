@@ -1177,7 +1177,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7209081954771220217}
-  - component: {fileID: 4256638957631765576}
   - component: {fileID: 8387361934745559990}
   m_Layer: 3
   m_Name: Rope
@@ -1214,32 +1213,6 @@ Transform:
   - {fileID: 2679980788799517498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4256638957631765576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5875099491880245398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d709a3339c90fc74cbff670eb1ba603b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrindRope
-  segments:
-  - {fileID: 4520232508015700534}
-  - {fileID: 4207385449403165586}
-  - {fileID: 66033691505674650}
-  - {fileID: 3184182464838443023}
-  - {fileID: 5009732268340215456}
-  - {fileID: 174688222089811899}
-  - {fileID: 4854487927135400064}
-  - {fileID: 6371781405821133604}
-  - {fileID: 5372241706713815737}
-  - {fileID: 7757723458927672037}
-  - {fileID: 6276221388741362897}
-  - {fileID: 252250811567152882}
-  - {fileID: 2679980788799517498}
 --- !u!68 &8387361934745559990
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5860075756432092000}
   m_Layer: 0
   m_Name: EndChunk
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6377477262782863222}
   m_Layer: 0
   m_Name: Rope
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_AngleLimits.m_UpperAngle
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 936408638969567127, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 1419573624585155909, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.008644581
@@ -218,6 +222,14 @@ PrefabInstance:
       propertyPath: m_AngleLimits.m_UpperAngle
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2121460616434758526, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395967977072526563, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 2679980788799517498, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.994
@@ -238,9 +250,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 99.529
       objectReference: {fileID: 0}
+    - target: {fileID: 2882837315507317541, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3184182464838443023, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002786576043243536, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 4110472137334225276, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_Mass
@@ -298,6 +318,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 4973974787314838773, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 5009732268340215456, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
@@ -313,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 5071919261149957111, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_AngleLimits.m_UpperAngle
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197054397034551875, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5297446368327696929, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -330,9 +358,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 5424372692723789147, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 5875099491880245398, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_Name
       value: Rope
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875099491880245398, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5890200588248974521, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -362,6 +398,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 6315834654248678866, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 6332422416478699749, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.08396341
@@ -381,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 6371781405821133604, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447484262287212952, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 6623079920071627180, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -458,6 +502,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7448082022843770379, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7670579290264662032, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_Mass
       value: 5
@@ -481,6 +529,14 @@ PrefabInstance:
     - target: {fileID: 8616410351638351713, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998231761174160589, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 9002028768649042449, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 9098712472128468593, guid: c3e3dfab107c22b41bf7b3ae11838b77, type: 3}
       propertyPath: m_Mass

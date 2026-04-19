@@ -8,9 +8,6 @@ public class MaxAmmoUpgrade : UpgradeData
     public override void ApplyUpgrade()
     {
         ShootingController playerShoot = FindFirstObjectByType<ShootingController>();
-        if (playerShoot != null)
-        {
-            playerShoot.UpgradeMaxAmmo(extraAmmo);
-        }
+        playerShoot.UpgradeMaxAmmo(extraAmmo);
     }
 }

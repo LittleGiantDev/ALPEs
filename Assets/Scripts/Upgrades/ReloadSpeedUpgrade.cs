@@ -8,9 +8,6 @@ public class ReloadSpeedUpgrade : UpgradeData
     public override void ApplyUpgrade()
     {
         ShootingController playerShoot = FindFirstObjectByType<ShootingController>();
-        if (playerShoot != null)
-        {
-            playerShoot.UpgradeReloadSpeed(reloadTimeReduction);
-        }
+        playerShoot.UpgradeReloadSpeed(reloadTimeReduction);
     }
 }

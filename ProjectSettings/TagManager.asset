@@ -7,7 +7,7 @@ TagManager:
   - Enemy
   - Ground
   - Hazard
-  - GrindRail
+  - Bridge
   layers:
   - Default
   - TransparentFX
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrain
+    uniqueID: 957543911
     locked: 0
   m_RenderingLayers:
   - Default

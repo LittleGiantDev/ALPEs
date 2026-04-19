@@ -8,9 +8,6 @@ public class RotationUpgrade : UpgradeData
     public override void ApplyUpgrade()
     {
         PlayerMovement playerMove = FindFirstObjectByType<PlayerMovement>();
-        if (playerMove != null)
-        {
-            playerMove.UpgradeRotationSpeed(rotationBoost);
-        }
+        playerMove.UpgradeRotationSpeed(rotationBoost);
     }
 }

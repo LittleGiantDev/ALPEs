@@ -1476,8 +1476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   health: 100
   coinPrefab: {fileID: 832578058211057756, guid: 8a6d533be97ade647b43b4a1b3e418e3, type: 3}
-  minCoinsDrop: 2
-  maxCoinsDrop: 5
+  minCoins: 2
+  maxCoins: 5
   ragdollParts:
   - {fileID: 5807344146881961023}
   - {fileID: 2913722778526011294}
@@ -1491,8 +1491,8 @@ MonoBehaviour:
   - {fileID: 6353900566208925855}
   - {fileID: 7512932343291986210}
   animator: {fileID: 1900143718158527989}
-  impactForceMultiplier: 250
-  bloodVFXPrefab: {fileID: 6719902188488817712, guid: 61a66be3f4db7174dafd0b4e34954a65, type: 3}
+  impactForce: 50
+  bloodPrefab: {fileID: 6719902188488817712, guid: 61a66be3f4db7174dafd0b4e34954a65, type: 3}
 --- !u!114 &91136888907199544
 MonoBehaviour:
   m_ObjectHideFlags: 0

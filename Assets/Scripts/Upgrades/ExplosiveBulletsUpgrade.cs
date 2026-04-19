@@ -6,19 +6,13 @@ public class ExplosiveBulletsUpgrade : UpgradeData
     public override void ApplyUpgrade()
     {
         ShootingController playerShoot = FindFirstObjectByType<ShootingController>();
-        if (playerShoot != null)
-        {
-            playerShoot.EnableExplosiveBullets();
-        }
+        playerShoot.EnableExplosiveBullets();
     }
 
     public override bool CanBeBought()
     {
         ShootingController playerShoot = FindFirstObjectByType<ShootingController>();
-        if (playerShoot != null)
-        {
-            return !playerShoot.HasExplosiveBullets();
-        }
+        return !playerShoot.HasExplosiveBullets();
         return true;
     }
 }
