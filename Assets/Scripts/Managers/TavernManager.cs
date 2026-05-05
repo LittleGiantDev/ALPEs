@@ -25,12 +25,23 @@ public class TavernManager : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        originalCamSize = mainCamera.orthographicSize;
-        wallStartPos = fourthWall.position;
         
-        shopUI.alpha = 0;
-        shopUI.interactable = false;
-        shopUI.blocksRaycasts = false;
+        if (mainCamera != null)
+        {
+            originalCamSize = mainCamera.orthographicSize;
+        }
+        
+        if (fourthWall != null)
+        {
+            wallStartPos = fourthWall.position;
+        }
+        
+        if (shopUI != null)
+        {
+            shopUI.alpha = 0f;
+            shopUI.interactable = false;
+            shopUI.blocksRaycasts = false;
+        }
     }
 
     private void Start()
@@ -46,63 +57,123 @@ public class TavernManager : MonoBehaviour
     private void StartTavernSequence()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerMove = player.GetComponent<PlayerMovement>();
-        playerShoot = player.GetComponent<ShootingController>();
-        playerRb = player.GetComponent<Rigidbody2D>();
-
-        continueButton.transform.DOScale(1.05f, 0.6f).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
         
-        playerMove.SetTavernState(true);
+        if (player != null)
+        {
+            playerMove = player.GetComponent<PlayerMovement>();
+            playerShoot = player.GetComponent<ShootingController>();
+            playerRb = player.GetComponent<Rigidbody2D>();
+        }
 
-        playerMove.enabled = false;
-        playerShoot.enabled = false;
-        playerRb.linearVelocity = Vector2.zero;
-        playerRb.angularVelocity = 0f;
-        playerRb.bodyType = RigidbodyType2D.Kinematic;
+        if (continueButton != null)
+        {
+            continueButton.transform.DOScale(1.05f, 0.6f).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+        }
+        
+        if (playerMove != null)
+        {
+            playerMove.SetTavernState(true);
+            playerMove.enabled = false;
+        }
 
-        player.transform.DOMove(playerAnchor.position, 1f).SetEase(Ease.OutQuad);
-        player.transform.DORotate(Vector3.zero, 1f).SetEase(Ease.OutQuad);
+        if (playerShoot != null)
+        {
+            playerShoot.enabled = false;
+        }
 
-        fourthWall.DOMoveY(wallStartPos.y + wallMoveY, transitionTime);
-        mainCamera.DOOrthoSize(zoomAmount, transitionTime).OnComplete(ShowShopUI);
+        if (playerRb != null)
+        {
+            playerRb.linearVelocity = Vector2.zero;
+            playerRb.angularVelocity = 0f;
+            playerRb.bodyType = RigidbodyType2D.Kinematic;
+        }
+
+        if (player != null && playerAnchor != null)
+        {
+            player.transform.DOMove(playerAnchor.position, 1f).SetEase(Ease.OutQuad);
+            player.transform.DORotate(Vector3.zero, 1f).SetEase(Ease.OutQuad);
+        }
+
+        if (fourthWall != null)
+        {
+            fourthWall.DOMoveY(wallStartPos.y + wallMoveY, transitionTime);
+        }
+
+        if (mainCamera != null)
+        {
+            mainCamera.DOOrthoSize(zoomAmount, transitionTime).OnComplete(() => ShowShopUI());
+        }
     }
 
     private void ShowShopUI()
     {
-        shopUI.DOFade(1, 0.5f);
-        shopUI.interactable = true;
-        shopUI.blocksRaycasts = true;
+        if (shopUI != null)
+        {
+            shopUI.DOFade(1f, 0.5f);
+            shopUI.interactable = true;
+            shopUI.blocksRaycasts = true;
+        }
     }
 
     public void ResumeGame()
     {
-        continueButton.transform.DOComplete();
-        continueButton.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f).SetUpdate(true);
-        AudioManager.Instance.PlayBuySound();
+        if (continueButton != null)
+        {
+            continueButton.transform.DOComplete();
+            continueButton.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f).SetUpdate(true);
+        }
         
-        shopUI.DOFade(0, 0.3f).OnComplete(HideShopAndMoveWall);
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBuySound();
+        }
+        
+        if (shopUI != null)
+        {
+            shopUI.DOFade(0f, 0.3f).OnComplete(() => HideShopAndMoveWall());
+        }
     }
 
-    // Bloquea los botones y devuelve la pared y la cámara a su sitio original
     private void HideShopAndMoveWall()
     {
-        shopUI.interactable = false;
-        shopUI.blocksRaycasts = false;
+        if (shopUI != null)
+        {
+            shopUI.interactable = false;
+            shopUI.blocksRaycasts = false;
+        }
 
-        fourthWall.DOMoveY(wallStartPos.y, transitionTime);
-        mainCamera.DOOrthoSize(originalCamSize, transitionTime).OnComplete(RestorePlayerState);
+        if (fourthWall != null)
+        {
+            fourthWall.DOMoveY(wallStartPos.y, transitionTime);
+        }
+
+        if (mainCamera != null)
+        {
+            mainCamera.DOOrthoSize(originalCamSize, transitionTime).OnComplete(() => RestorePlayerState());
+        }
     }
 
-    // Devuelve el control al jugador
     private void RestorePlayerState()
     {
-        playerRb.bodyType = RigidbodyType2D.Dynamic;
+        if (playerRb != null)
+        {
+            playerRb.bodyType = RigidbodyType2D.Dynamic;
+        }
         
-        playerMove.SetTavernState(false);
+        if (playerMove != null)
+        {
+            playerMove.SetTavernState(false);
+            playerMove.enabled = true;
+        }
+
+        if (playerShoot != null)
+        {
+            playerShoot.enabled = true;
+        }
         
-        playerMove.enabled = true;
-        playerShoot.enabled = true;
-        
-        GameEvents.OnTavernExited.Invoke();
+        if (GameEvents.OnTavernExited != null)
+        {
+            GameEvents.OnTavernExited.Invoke();
+        }
     }
 }

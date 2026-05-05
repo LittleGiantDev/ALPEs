@@ -22962,8 +22962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathHandler
   aliveGraphics: {fileID: 438260579}
-  weapon: {fileID: 631749458}
-  ragdollMain: {fileID: 688071629}
+  weaponPivot: {fileID: 631749458}
+  ragdollRoot: {fileID: 688071629}
   aliveBones:
   - {fileID: 1360652329}
   - {fileID: 1042113408}
@@ -22978,7 +22978,7 @@ MonoBehaviour:
   - {fileID: 1170079346}
   - {fileID: 817437558}
   - {fileID: 1745940324}
-  ragdollRb:
+  ragdollRbs:
   - {fileID: 1360652333}
   - {fileID: 1042113412}
   - {fileID: 578322180}
@@ -22996,7 +22996,7 @@ MonoBehaviour:
   rightSki: {fileID: 2042654359}
   rifleRb: {fileID: 631749461}
   rifleCollider: {fileID: 631749462}
-  stickVelocity: 15
+  stickVelocityThreshold: 15
 --- !u!1 &2025073422
 GameObject:
   m_ObjectHideFlags: 0

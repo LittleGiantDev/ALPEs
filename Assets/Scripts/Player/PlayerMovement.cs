@@ -212,7 +212,7 @@ public class PlayerMovement : PlayerSystem
 
         for (int i = 0; i < hits.Length; i++)
         {
-            if (hits[i].collider != null)
+            if (hits[i].collider != null && hits[i].collider.isTrigger == false)
             {
                 if (hits[i].collider.CompareTag("Ground"))
                 {
@@ -264,7 +264,7 @@ public class PlayerMovement : PlayerSystem
         
         for (int i = 0; i < hits.Length; i++)
         {
-            if (hits[i].collider != null)
+            if (hits[i].collider != null && hits[i].collider.isTrigger == false)
             {
                 if (hits[i].collider.CompareTag("Ground"))
                 {
@@ -291,15 +291,27 @@ public class PlayerMovement : PlayerSystem
         {
             main.Rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             hasUsedDoubleJump = false;
-            AudioManager.Instance.PlayJumpSound();
+            
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayJumpSound();
+            }
         }
         else if (canDoubleJump && hasUsedDoubleJump == false)
         {
             main.Rb.linearVelocity = new Vector2(main.Rb.linearVelocity.x, 0);
             main.Rb.AddForce(Vector2.up * jumpForce * 0.8f, ForceMode2D.Impulse);
             hasUsedDoubleJump = true;
-            AudioManager.Instance.PlayJumpSound();
-            doubleJumpVFX.Play();
+            
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayJumpSound();
+            }
+            
+            if (doubleJumpVFX != null)
+            {
+                doubleJumpVFX.Play();
+            }
         }
     }
 
@@ -360,7 +372,10 @@ public class PlayerMovement : PlayerSystem
             if (isOverloaded)
             {
                 Destroy(collision.gameObject);
-                Instantiate(rockBreakVFXPrefab, collision.transform.position, Quaternion.identity);
+                if (rockBreakVFXPrefab != null)
+                {
+                    Instantiate(rockBreakVFXPrefab, collision.transform.position, Quaternion.identity);
+                }
             }
             else
             {
